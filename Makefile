@@ -1,6 +1,7 @@
 # options
 CXX := c++
 BUILD := ./build
+EXE := $(BUILD)/program
 
 SRC += $(wildcard src/*.cpp)
 
@@ -26,8 +27,10 @@ $(BUILD)/imgui_%.o: imgui/%.cpp
 	mkdir -p $(shell dirname $@)
 	$(CXX) -c $< -o $@ $(CXXFLAGS)
 
-build: $(OBJ)
-	$(CXX) $(OBJ) -o $(BUILD)/program $(CXXFLAGS)
+$(EXE):
+	$(CXX) $(OBJ) -o $< $(CXXFLAGS)
+
+build: $(EXE)
 
 run: build
 	exec $(BUILD)/program
