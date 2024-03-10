@@ -13,9 +13,10 @@ int main() {
     auto editor = Editor();
     auto ui = getDesiredUI(editor);
 
-    while (editor.is_active) {
-        return 5;
-    }
+    std::cerr << "hello\n";
+
+    while (editor.is_active)
+        ui->update();
 
     return 0;
 }

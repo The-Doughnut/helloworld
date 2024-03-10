@@ -1,6 +1,8 @@
 #ifndef _UI_HPP
 #define _UI_HPP
 
+#include <string>
+
 /**
  * An API for the user interface so we can opperate on different systems accordingly.
  *
@@ -8,7 +10,9 @@
  */
 struct Ui {
     virtual ~Ui();
-    virtual void render() = 0;
+    virtual void update() = 0;
+
+    struct Error { std::string message; };
 };
 
 #endif
